@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.restaurant.controller.MainController">
+   <children>
+      <TableView layoutX="29.0" layoutY="81.0" prefHeight="285.0" prefWidth="535.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Order" />
+          <TableColumn prefWidth="75.0" text="Name" />
+            <TableColumn prefWidth="75.0" text="Price" />
+            <TableColumn prefWidth="75.0" text="Date" />
+            <TableColumn prefWidth="75.0" text="Number" />
+            <TableColumn prefWidth="75.0" text="Type" />
+            <TableColumn prefWidth="75.0" text="Size" />
+        </columns>
+      </TableView>
+      <Label layoutX="67.0" layoutY="44.0" prefHeight="21.0" prefWidth="190.0" text="Restaurant" />
+   </children>
+</AnchorPane>
