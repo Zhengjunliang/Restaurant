@@ -1,10 +1,14 @@
 package com.restaurant.controller;
 
+import com.restaurant.administrator.AdministratorApplication;
+import com.restaurant.customer.CustomerApplication;
 import com.restaurant.DBUtil.DBUtil;
+import com.restaurant.util.LoginUtil;
 import com.restaurant.util.StringUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.sql.*;
 
@@ -25,41 +29,41 @@ public class LoginController {
     }
 
     @FXML
-    public void Login() throws SQLException {
+    public void Login() throws Exception {
         String login = accountLogin.getText();
         String password = passwordLogin.getText();
         if (StringUtil.isEmpty(login) || StringUtil.isEmpty(password)) {
             loginErrorMessage.setVisible(true);
             return;
         }
-        Connection con = null;
-        ResultSet rs = null;
-        try{
-            con = DBUtil.dbConnect();
-            String sql = "select * from utente";
-            Statement stm = con.createStatement();
-            rs = stm.executeQuery(sql);
-            System.out.println("查询结果:");
-            while (rs.next()) {
-                String name = rs.getString("username");
-                String qwpassword = rs.getString("password");
-                System.out.println(name);
-                System.out.println(qwpassword);
-            }
 
+        try{
+            if(LoginUtil.isLogin(login, password)){
+                if(login.equals("admin")){
+                    AdministratorApplication administratorApplication = new AdministratorApplication();
+                    administratorApplication.start(new Stage());
+                    Stage stage = DBUtil.getStage();
+                    stage.close();
+                }
+                else {
+                    CustomerApplication customerApplication = new CustomerApplication();
+                    customerApplication.start(new Stage());
+                    Stage stage = DBUtil.getStage();
+                    stage.close();
+                }
+                System.out.println("Connected Successfully");
+
+            }
+            else{
+                accountLogin.setStyle("-fx-border-color:red; -fx-border-width:2px;");
+                passwordLogin.setStyle("-fx-border-color:red; -fx-border-width:2px;");
+                loginErrorMessage.setVisible(true);
+                System.out.println("Login Failed");
+            }
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        finally {
-            DBUtil.dbDisconnect(con);
-        }
-        if (login.equals("admin") && password.equals("123")) {
-            //Go to next controller
-            loginErrorMessage.setVisible(false);
-        }
-        else {
-            loginErrorMessage.setVisible(true);
+        catch (SQLException e) {
+            System.out.println("Error occured while Login");
+            throw e;
         }
     }
 }

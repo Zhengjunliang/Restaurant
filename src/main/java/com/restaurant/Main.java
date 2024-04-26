@@ -1,5 +1,6 @@
 package com.restaurant;
 
+import com.restaurant.DBUtil.DBUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,22 +10,16 @@ import java.util.Objects;
 
 public class Main extends Application {
 
-    private static Stage stage;
-
     @Override
     public void start(Stage stage) throws Exception {
-        Main.stage = stage;
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginView.fxml")));
+        Scene scene = new Scene(root);
+        DBUtil.setStage(stage);
         stage.setTitle("Restaurant");
-        changeView("loginView.fxml");
+        stage.setScene(scene);
         stage.show();
     }
-
-    public static void changeView(String fxml) throws Exception {
-
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
-        stage.setScene(new Scene(root));
-    }
-
 
     public static void main(String[] args) {
         launch(args);
