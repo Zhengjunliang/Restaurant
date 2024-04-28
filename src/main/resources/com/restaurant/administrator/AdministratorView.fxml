@@ -7,10 +7,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.restaurant.administrator.AdministratorController">
    <children>
       <Button layoutX="432.0" layoutY="135.0" mnemonicParsing="false" onAction="#admLogout" text="Exit" />
       <Button layoutX="59.0" layoutY="88.0" mnemonicParsing="false" onAction="#admDish" text="Dishes" />
+      <Button layoutX="249.0" layoutY="88.0" mnemonicParsing="false" onAction="#admStaff" text="staff" />
    </children>
 </AnchorPane>

@@ -9,8 +9,8 @@ module com.restaurant {
     exports com.restaurant;
     exports com.restaurant.util;
     opens com.restaurant.util to javafx.fxml;
-    exports com.restaurant.controller;
-    opens com.restaurant.controller to javafx.fxml;
+    exports com.restaurant.login;
+    opens com.restaurant.login to javafx.fxml;
     opens com.restaurant.administrator to javafx.fxml;
     exports com.restaurant.administrator to javafx.fxml;
     opens com.restaurant.customer to javafx.fxml;
