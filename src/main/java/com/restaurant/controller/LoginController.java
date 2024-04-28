@@ -5,14 +5,20 @@ import com.restaurant.customer.CustomerApplication;
 import com.restaurant.DBUtil.DBUtil;
 import com.restaurant.util.LoginUtil;
 import com.restaurant.util.StringUtil;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 import java.sql.*;
 
 public class LoginController {
+
+    @FXML
+    private AnchorPane loginPane;
 
     @FXML
     private TextField accountLogin;
@@ -22,6 +28,11 @@ public class LoginController {
 
     @FXML
     private Label loginErrorMessage;
+
+    @FXML
+    private Button exitButton;
+
+    Stage stage;
 
     @FXML
     public void initialize() {
@@ -66,4 +77,20 @@ public class LoginController {
             throw e;
         }
     }
+
+    public void logout(ActionEvent event) {
+
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("The Application is about to get closed.");
+        alert.setContentText("Do you really want to log out?");
+
+
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            stage = (Stage) loginPane.getScene().getWindow();
+            stage.close();
+        }
+    }
+
+
 }
