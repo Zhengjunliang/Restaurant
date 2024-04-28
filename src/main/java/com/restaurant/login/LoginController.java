@@ -1,9 +1,8 @@
-package com.restaurant.controller;
+package com.restaurant.login;
 
 import com.restaurant.administrator.AdministratorApplication;
 import com.restaurant.customer.CustomerApplication;
 import com.restaurant.DBUtil.DBUtil;
-import com.restaurant.util.LoginUtil;
 import com.restaurant.util.StringUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -38,7 +37,7 @@ public class LoginController {
         }
 
         try{
-            if(LoginUtil.isLogin(login, password)){
+            if(LoginDAO.isLogin(login, password)){
                 if(login.equals("admin")){
                     AdministratorApplication administratorApplication = new AdministratorApplication();
                     administratorApplication.start(new Stage());

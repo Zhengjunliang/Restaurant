@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="465.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.restaurant.administrator.StaffController">
+   <children>
+      <TableView fx:id="staffTable" layoutX="19.0" layoutY="78.0" prefHeight="313.0" prefWidth="599.0">
+        <columns>
+          <TableColumn fx:id="colStaffId" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="colStaffName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="colStaffGender" prefWidth="75.0" text="Gender" />
+            <TableColumn fx:id="colStaffAge" prefWidth="75.0" text="Age" />
+            <TableColumn fx:id="colStaffRole" prefWidth="75.0" text="Role" />
+            <TableColumn fx:id="colStaffSalary" prefWidth="65.0" text="Salary" />
+            <TableColumn fx:id="colStaffDate" prefWidth="158.0" text="Entry Date" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="152.0" layoutY="22.0" prefHeight="38.0" prefWidth="300.0" text="Staff Manager System" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="36.0" layoutY="411.0" mnemonicParsing="false" onAction="#addStaff" text="Add" />
+      <Button layoutX="181.0" layoutY="411.0" mnemonicParsing="false" onAction="#updateStaff" text="Update" />
+      <Button layoutX="524.0" layoutY="406.0" mnemonicParsing="false" onAction="#deleteStaff" text="Delete" />
+      <Button layoutX="28.0" layoutY="25.0" mnemonicParsing="false" onAction="#return_back" text="Return" />
+      <Button layoutX="533.0" layoutY="25.0" mnemonicParsing="false" onAction="#searchStaff" text="Search" />
+      <TextField fx:id="searchId" layoutX="435.0" layoutY="26.0" prefHeight="31.0" prefWidth="89.0" />
+      <Button layoutX="312.0" layoutY="411.0" mnemonicParsing="false" onAction="#refreshStaff" text="Refresh" />
+   </children>
+</AnchorPane>

@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.restaurant.controller.LoginController">
+<AnchorPane prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.restaurant.login.LoginController">
     <children>
         <Label layoutX="71.0" layoutY="134.0" prefHeight="21.0" prefWidth="53.0" text="User :" />
         <TextField fx:id="accountLogin" layoutX="155.0" layoutY="129.0" />
