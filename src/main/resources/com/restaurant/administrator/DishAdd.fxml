@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="381.0" prefWidth="423.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.restaurant.administrator.DishAddController">
+    <children>
+        <Label layoutX="46.0" layoutY="63.0" prefHeight="17.0" prefWidth="40.0" text="Id" />
+        <Label layoutX="46.0" layoutY="107.0" prefHeight="21.0" prefWidth="40.0" text="Dish" />
+        <Label layoutX="46.0" layoutY="200.0" prefHeight="21.0" prefWidth="40.0" text="Price" />
+        <TextField fx:id="txtId" layoutX="118.0" layoutY="56.0" prefHeight="31.0" prefWidth="187.0" promptText="ex: 1, 2, 3..." />
+        <TextField fx:id="txtDish" layoutX="118.0" layoutY="102.0" prefHeight="31.0" prefWidth="187.0" promptText="Lasagna" />
+        <TextField fx:id="txtPrice" layoutX="118.0" layoutY="195.0" prefHeight="31.0" prefWidth="187.0" promptText="12.50" />
+        <Label layoutX="46.0" layoutY="153.0" text="Course" />
+        <Button fx:id="addButton" layoutX="191.0" layoutY="301.0" mnemonicParsing="false" onAction="#insertDish" text="Add" />
+        <ChoiceBox fx:id="ckbCourse" layoutX="118.0" layoutY="146.0" prefHeight="31.0" prefWidth="187.0" />
+        <Label layoutX="46.0" layoutY="245.0" prefHeight="17.0" prefWidth="40.0" text="Date" />
+        <DatePicker fx:id="dpDate" layoutX="118.0" layoutY="238.0" prefHeight="31.0" prefWidth="187.0" />
+    </children>
+</AnchorPane>

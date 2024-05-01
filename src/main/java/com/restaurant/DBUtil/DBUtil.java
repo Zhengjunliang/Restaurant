@@ -48,7 +48,7 @@ public class DBUtil {
             stm.executeUpdate(sqlStm);
         }
         catch (SQLException | ClassNotFoundException e){
-            System.out.println("Problem occured at dbExecuteQuery");
+            System.out.println("Problem occurred at dbExecuteQuery");
             throw new SQLException(e.getMessage());
         }
         finally {
