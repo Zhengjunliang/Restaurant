@@ -1,5 +1,6 @@
 package com.restaurant.administrator;
 
+import com.restaurant.model.Staff;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;

@@ -15,4 +15,6 @@ module com.restaurant {
     exports com.restaurant.administrator to javafx.fxml;
     opens com.restaurant.customer to javafx.fxml;
     exports com.restaurant.customer to javafx.fxml;
+    exports com.restaurant.model to javafx.fxml;
+    opens com.restaurant.model to javafx.fxml;
 }

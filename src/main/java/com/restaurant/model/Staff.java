@@ -1,4 +1,4 @@
-package com.restaurant.administrator;
+package com.restaurant.model;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -7,13 +7,13 @@ import javafx.beans.property.StringProperty;
 
 
 public class Staff {
-    private IntegerProperty idProperty;
-    private StringProperty nameProperty;
-    private StringProperty genderProperty;
-    private IntegerProperty ageProperty;
-    private StringProperty roleProperty;
-    private StringProperty salaryProperty;
-    private StringProperty dateProperty;
+    private final IntegerProperty idProperty;
+    private final StringProperty nameProperty;
+    private final StringProperty genderProperty;
+    private final IntegerProperty ageProperty;
+    private final StringProperty roleProperty;
+    private final StringProperty salaryProperty;
+    private final StringProperty dateProperty;
 
     public Staff() {
         this.idProperty = new SimpleIntegerProperty();

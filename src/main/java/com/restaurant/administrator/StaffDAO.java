@@ -1,6 +1,7 @@
 package com.restaurant.administrator;
 
 import com.restaurant.DBUtil.DBUtil;
+import com.restaurant.model.Staff;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

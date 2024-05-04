@@ -1,14 +1,14 @@
-package com.restaurant.administrator;
+package com.restaurant.model;
 
 import javafx.beans.property.*;
 
 public class Dish {
 
-    private IntegerProperty idProperty;
-    private StringProperty dishProperty;
-    private StringProperty courseProperty;
-    private DoubleProperty priceProperty;
-    private StringProperty dateProperty;
+    private final IntegerProperty idProperty;
+    private final StringProperty dishProperty;
+    private final StringProperty courseProperty;
+    private final DoubleProperty priceProperty;
+    private final StringProperty dateProperty;
 
     public Dish(){
         this.idProperty = new SimpleIntegerProperty();
