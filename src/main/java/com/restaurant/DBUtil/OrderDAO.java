@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class OrderDAO {
 
-    public static void insertOrderData(int id, String name, Double price, String date) throws SQLException {
-        String sql = "insert into orders values("+id+",'"+name+"',"+price+",'"+date+"')";
+    public static void insertOrderData(String name, Double price, String date) throws SQLException {
+        String sql = "insert into orders (name, price, data) values('"+name+"',"+price+",'"+date+"')";
         try{
             DBUtil.dbExecuteQuery(sql);
         }

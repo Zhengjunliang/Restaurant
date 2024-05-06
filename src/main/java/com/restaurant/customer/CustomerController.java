@@ -72,7 +72,7 @@ public class CustomerController {
     @FXML
     public void CheckOutOrder() throws SQLException{
         try{
-           OrderDAO.insertOrderData(2,"marco", price, "11/11/11");
+           OrderDAO.insertOrderData("marco", price, "11/11/11");
 
         }
         catch (SQLException e) {
