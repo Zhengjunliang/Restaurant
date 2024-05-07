@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.fxml.FXML;
@@ -127,6 +128,10 @@ public class StaffController {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorView.fxml")));
             Scene admStaff = new Scene(root);
+
+            Label usernameLabel = (Label) admStaff.lookup("#txtUsername");
+            usernameLabel.setText(AdministratorController.getUsername());
+
             //get stage information
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(admStaff);

@@ -130,6 +130,9 @@ public class DishController {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorView.fxml")));
             Scene admDish = new Scene(root);
 
+            Label usernameLabel = (Label) admDish.lookup("#txtUsername");
+            usernameLabel.setText(AdministratorController.getUsername());
+
             Stage window = new Stage();
             window.setScene(admDish);
             window.show();

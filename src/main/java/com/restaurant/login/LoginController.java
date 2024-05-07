@@ -1,6 +1,7 @@
 package com.restaurant.login;
 
 import com.restaurant.administrator.AdministratorApplication;
+import com.restaurant.administrator.AdministratorController;
 import com.restaurant.customer.CustomerApplication;
 import com.restaurant.DBUtil.DBUtil;
 import com.restaurant.util.StringUtil;
@@ -33,9 +34,16 @@ public class LoginController {
 
     Stage stage;
 
+    private static String login;
+
     @FXML
     public void initialize() {
 
+    }
+
+    // Getter per l'username
+    public static String getLogin() {
+        return login;
     }
 
     @FXML
@@ -50,7 +58,7 @@ public class LoginController {
         try{
             if(LoginDAO.isLogin(login, password)){
                 if(login.equals("admin")){
-                    AdministratorApplication administratorApplication = new AdministratorApplication();
+                    AdministratorApplication administratorApplication = new AdministratorApplication(login);
                     administratorApplication.start(new Stage());
                     Stage stage = DBUtil.getStage();
                     stage.close();

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.restaurant.administrator.OrderListController">
+    <children>
+        <TableView fx:id="ordersTable" layoutX="10.0" layoutY="76.0" prefHeight="313.0" prefWidth="581.0">
+            <columns>
+                <TableColumn fx:id="colOrdersId" prefWidth="66.0" text="Id" />
+                <TableColumn fx:id="colOrdersName" prefWidth="140.0" text="Name" />
+                <TableColumn fx:id="colOrdersTotal" prefWidth="122.0" text="Price" />
+                <TableColumn fx:id="colOrdersDate" prefWidth="147.0" text="Entry Date" />
+            </columns>
+        </TableView>
+        <Label alignment="CENTER" layoutX="156.0" layoutY="23.0" prefHeight="38.0" prefWidth="279.0" text="Menu Management System" textAlignment="CENTER">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Button fx:id="returnButton" layoutX="28.0" layoutY="28.0" mnemonicParsing="false" onAction="#return_back" text="Return" />
+        <TextField fx:id="searchId" layoutX="440.0" layoutY="27.0" prefHeight="31.0" prefWidth="89.0" />
+        <Button fx:id="searchButton" layoutX="534.0" layoutY="29.0" mnemonicParsing="false" onAction="#searchOrder" text="Search" />
+        <Button fx:id="refreshButton" layoutX="172.0" layoutY="406.0" mnemonicParsing="false" onAction="#refreshOrders" text="Refresh" />
+    </children>
+</AnchorPane>
