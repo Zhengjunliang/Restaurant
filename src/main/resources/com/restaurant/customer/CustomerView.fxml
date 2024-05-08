@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -9,7 +10,12 @@
 
 <AnchorPane prefHeight="414.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.restaurant.customer.CustomerController">
     <children>
-        <Button layoutX="529.0" layoutY="23.0" mnemonicParsing="false" onAction="#logout" text="Exit" />
+        <ImageView layoutX="-231.0" layoutY="-231.0" scaleX="0.045" scaleY="0.045" scaleZ="0.045">
+            <image>
+                <Image url="@../docs/admin_icon.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="logoutButton" layoutX="529.0" layoutY="23.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
       <TableView fx:id="orderTable" layoutX="23.0" layoutY="54.0" onMouseClicked="#AddOrder" prefHeight="213.0" prefWidth="387.0">
         <columns>
           <TableColumn fx:id="colOrderId" prefWidth="51.0" text="Id" />
@@ -27,6 +33,17 @@
         </columns>
       </TableView>
       <Button layoutX="575.0" layoutY="351.0" mnemonicParsing="false" onAction="#CheckOutOrder" text="Check out" />
+      <Text fx:id="txtCheckOutSuccess" fill="#3498db" layoutX="209.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your order has been submitted correctly!" visible="false" wrappingWidth="258.21630859375">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtCheckOutFail" fill="#e74c3c" layoutX="191.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="There was an error while processing your order" visible="false" wrappingWidth="294.21630859375">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Label fx:id="txtUsername" layoutX="37.0" layoutY="17.0" text="Customer" />
 
     </children>
 </AnchorPane>

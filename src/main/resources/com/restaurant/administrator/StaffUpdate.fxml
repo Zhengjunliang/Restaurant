@@ -20,7 +20,7 @@
       <Label layoutX="46.0" layoutY="161.0" text="Gender" />
       <TextField fx:id="txtRole" layoutX="118.0" layoutY="242.0" />
       <Label layoutX="46.0" layoutY="247.0" text="Role" />
-      <Button layoutX="86.0" layoutY="409.0" mnemonicParsing="false" onAction="#modifyStaff" text="Update" />
+      <Button fx:id="updateButton" layoutX="86.0" layoutY="409.0" mnemonicParsing="false" onAction="#modifyStaff" text="Update" />
       <ChoiceBox fx:id="ckbGender" layoutX="118.0" layoutY="146.0" prefHeight="31.0" prefWidth="187.0" />
       <Label layoutX="46.0" layoutY="336.0" text="Date" />
       <DatePicker fx:id="dpDate" layoutX="118.0" layoutY="331.0" prefHeight="31.0" prefWidth="187.0" />

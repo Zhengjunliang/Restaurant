@@ -94,4 +94,20 @@ public class StaffDAO {
             throw e;
         }
     }
+
+    public static double sumSalaryData() throws SQLException, ClassNotFoundException {
+        String sql = "select sum(salary) as totalSalary from staff";
+        double totalSalary = 0;
+        try{
+            ResultSet rs = DBUtil.dbExecute(sql);
+            if (rs.next()){
+                totalSalary = rs.getDouble("totalSalary");
+            }
+            return totalSalary;
+        }
+        catch (SQLException e) {
+            System.out.println("Error occurred while calculating total salary");
+            throw e;
+        }
+    }
 }

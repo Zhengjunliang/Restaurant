@@ -27,11 +27,11 @@ public class Main extends Application {
 
         stage.setOnCloseRequest(event -> {
             event.consume();
-            logout(stage);
+            Main.logout(stage);
         });
     }
 
-    public void logout(Stage stage) {
+    public static void logout(Stage stage) {
 
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Logout");

@@ -1,5 +1,7 @@
 package com.restaurant.administrator;
 
+import com.restaurant.DBUtil.OrderListDAO;
+import com.restaurant.Main;
 import com.restaurant.login.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,17 +9,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class AdministratorController {
 
+    @FXML private Label txtBudget;
+    @FXML private Button logoutButton;
     @FXML private static Label txtUsername;
     private static String username = "";
+    private double budget;
 
+    public void initialize() throws ClassNotFoundException, SQLException {
+        budget = StaffDAO.sumSalaryData() - OrderListDAO.sumPriceData();
+        txtBudget.setText(String.valueOf(budget));
+    }
 
     // Metodo di set per txtUsername
     @FXML
@@ -76,9 +89,25 @@ public class AdministratorController {
         }
     }
 
+    public void admBudget() throws ClassNotFoundException, SQLException {
+        budget = StaffDAO.sumSalaryData() /*- StaffDAO.sumOrders*/;
+    }
+
     public void admLogout(ActionEvent event) throws Exception {
         try {
-            System.exit(1);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Logout");
+            alert.setHeaderText("You are about to log out");
+            alert.setContentText("Do you really want to log out?");
+
+            if (alert.showAndWait().get() == ButtonType.OK) {
+
+                Stage stage = (Stage) logoutButton.getScene().getWindow();
+                stage.close();
+
+                Main main = new Main();
+                main.start(new Stage());
+            }
         }
         catch (Exception e) {
             System.out.println("Error occurred while logging out");

@@ -7,11 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
@@ -29,6 +26,7 @@ public class StaffController {
     @FXML private TableColumn<Staff, String> colStaffRole;
     @FXML private TableColumn<Staff, String> colStaffSalary;
     @FXML private TableColumn<Staff, String> colStaffDate;
+    @FXML private Button returnButton;
 
     @FXML
     public void initialize() throws Exception{
@@ -77,10 +75,10 @@ public class StaffController {
             if(staff != null) {
                 StaffUpdateController.setCurrent(staff);
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StaffUpdate.fxml")));
-                Scene admStaff = new Scene(root);
+
                 //get stage information
                 Stage window = new Stage();
-                window.setScene(admStaff);
+                window.setScene(new Scene(root));
                 window.show();
             }
         }
@@ -95,9 +93,16 @@ public class StaffController {
         try{
             Staff staff = staffTable.getSelectionModel().getSelectedItem();
             if(staff != null){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirm Dismissal");
+                alert.setHeaderText("Do you really want to fire this employee?");
+                alert.setContentText("Press OK to fire the current employee");
+
+                if (alert.showAndWait().get() == ButtonType.OK) {
                 StaffDAO.deleteStaffByID(staff.getId());
                 ObservableList<Staff> staffList = StaffDAO.getAllRecords();
                 populateTable(staffList);
+                }
             }
         }
         catch (SQLException e){
@@ -124,8 +129,12 @@ public class StaffController {
             }
         }
     }
+
     public void return_back(ActionEvent event)  throws Exception{
         try {
+            Stage stage = (Stage) returnButton.getScene().getWindow(); // Ottieni il riferimento alla finestra di AdministratorDish
+            stage.close(); // Chiudi la finestra di AdministratorDish
+
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorView.fxml")));
             Scene admStaff = new Scene(root);
 

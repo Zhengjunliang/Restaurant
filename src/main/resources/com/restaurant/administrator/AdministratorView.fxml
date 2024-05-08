@@ -12,13 +12,14 @@
    <children>
       <ImageView layoutX="-231.0" layoutY="-231.0" scaleX="0.045" scaleY="0.045" scaleZ="0.045">
          <image>
-            <Image url="@docs/admin_icon.png" />
+            <Image url="@../docs/admin_icon.png" />
          </image>
       </ImageView>
-      <Button layoutX="432.0" layoutY="135.0" mnemonicParsing="false" onAction="#admLogout" text="Exit" />
+      <Button fx:id="logoutButton" layoutX="432.0" layoutY="135.0" mnemonicParsing="false" onAction="#admLogout" text="Logout" />
       <Button layoutX="59.0" layoutY="88.0" mnemonicParsing="false" onAction="#admDish" text="Dishes" />
       <Button layoutX="249.0" layoutY="88.0" mnemonicParsing="false" onAction="#admStaff" text="staff" />
       <Button layoutX="222.0" layoutY="187.0" mnemonicParsing="false" onAction="#admOrders" text="Orders" />
       <Label fx:id="txtUsername" layoutX="37.0" layoutY="17.0" prefHeight="17.0" prefWidth="64.0" />
+      <Label fx:id="txtBudget" layoutX="135.0" layoutY="17.0" text="0.0" />
    </children>
 </AnchorPane>

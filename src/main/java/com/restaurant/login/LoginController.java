@@ -64,7 +64,7 @@ public class LoginController {
                     stage.close();
                 }
                 else {
-                    CustomerApplication customerApplication = new CustomerApplication();
+                    CustomerApplication customerApplication = new CustomerApplication(login);
                     customerApplication.start(new Stage());
                     Stage stage = DBUtil.getStage();
                     stage.close();

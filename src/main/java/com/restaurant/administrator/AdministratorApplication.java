@@ -1,6 +1,7 @@
 package com.restaurant.administrator;
 
 import com.restaurant.login.LoginController;
+import com.restaurant.Main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,6 +31,11 @@ public class AdministratorApplication extends Application {
         AdministratorController.setUsername(username);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        primaryStage.setOnCloseRequest(event -> {
+            event.consume();
+            Main.logout(primaryStage);
+        });
     }
 
 }

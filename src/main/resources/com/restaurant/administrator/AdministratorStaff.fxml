@@ -26,7 +26,7 @@
       <Button layoutX="35.0" layoutY="406.0" mnemonicParsing="false" onAction="#addStaff" text="Add" />
       <Button layoutX="93.0" layoutY="406.0" mnemonicParsing="false" onAction="#updateStaff" text="Update" />
       <Button layoutX="524.0" layoutY="406.0" mnemonicParsing="false" onAction="#deleteStaff" text="Delete" />
-      <Button layoutX="28.0" layoutY="28.0" mnemonicParsing="false" onAction="#return_back" text="Return" />
+      <Button fx:id="returnButton" layoutX="28.0" layoutY="28.0" mnemonicParsing="false" onAction="#return_back" text="Return" />
       <Button layoutX="534.0" layoutY="29.0" mnemonicParsing="false" onAction="#searchStaff" text="Search" />
       <TextField fx:id="searchId" layoutX="440.0" layoutY="27.0" prefHeight="31.0" prefWidth="89.0" />
       <Button layoutX="172.0" layoutY="406.0" mnemonicParsing="false" onAction="#refreshStaff" text="Refresh" />

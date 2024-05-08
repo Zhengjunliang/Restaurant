@@ -124,6 +124,7 @@ public class DishController {
 
     public void return_back(ActionEvent event) throws Exception {
         try {
+            //si possono togliere queste due righe?
             Stage stage = (Stage) returnButton.getScene().getWindow(); // Ottieni il riferimento alla finestra di AdministratorDish
             stage.close(); // Chiudi la finestra di AdministratorDish
 
@@ -142,5 +143,4 @@ public class DishController {
             throw e;
         }
     }
-
 }
