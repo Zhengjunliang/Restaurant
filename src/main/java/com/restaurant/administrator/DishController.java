@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
@@ -24,7 +26,7 @@ public class DishController {
     @FXML private TableColumn<Dish, Double> colDishPrice;
     @FXML private TableColumn<Dish, String> colDishDate;
 
-    @FXML private Button returnButton;
+    @FXML private ImageView returnButton;
 
     @FXML
     public void initialize() throws Exception{
@@ -122,7 +124,7 @@ public class DishController {
         }
     }
 
-    public void return_back(ActionEvent event) throws Exception {
+    public void return_back(MouseEvent event) throws Exception {
         try {
             //si possono togliere queste due righe?
             Stage stage = (Stage) returnButton.getScene().getWindow(); // Ottieni il riferimento alla finestra di AdministratorDish

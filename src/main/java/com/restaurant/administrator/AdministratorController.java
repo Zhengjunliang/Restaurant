@@ -2,8 +2,8 @@ package com.restaurant.administrator;
 
 import com.restaurant.DBUtil.OrderListDAO;
 import com.restaurant.Main;
-import com.restaurant.login.LoginController;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,8 +13,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.text.Text;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
 
 import java.sql.SQLException;
 import java.util.Objects;
@@ -24,6 +27,12 @@ public class AdministratorController {
     @FXML private Label txtBudget;
     @FXML private Button logoutButton;
     @FXML private static Label txtUsername;
+    @FXML private ImageView gifStaff;
+    @FXML private ImageView imgStaff;
+    @FXML private ImageView gifDishes;
+    @FXML private ImageView imgDishes;
+    @FXML private ImageView gifOrders;
+    @FXML private ImageView imgOrders;
     private static String username = "";
     private double budget;
 
@@ -44,7 +53,17 @@ public class AdministratorController {
         return username;
     }
 
-    public void admDish(ActionEvent event) throws Exception {
+    public void gifHoverDishes() {
+        gifDishes.setVisible(true);
+        imgDishes.setVisible(false);
+    }
+
+    public void gifExitDishes() {
+        gifDishes.setVisible(false);
+        imgDishes.setVisible(true);
+    }
+
+    public void admDish(MouseEvent event) throws Exception {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorDish.fxml")));
             Scene admDish = new Scene(root);
@@ -59,7 +78,46 @@ public class AdministratorController {
         }
     }
 
-    public void admStaff(ActionEvent event) throws Exception {
+    public void admDishButton(ActionEvent event) throws Exception {
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorDish.fxml")));
+            Scene admDish = new Scene(root);
+            //get stage information
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(admDish);
+            window.show();
+        }
+        catch (Exception e) {
+            System.out.println("Error occurred while opening Dish page");
+            throw e;
+        }
+    }
+
+    public void gifHoverStaff() {
+        gifStaff.setVisible(true);
+        imgStaff.setVisible(false);
+    }
+
+    public void gifExitStaff() {
+        gifStaff.setVisible(false);
+        imgStaff.setVisible(true);
+    }
+
+    public void admStaff(MouseEvent event) throws Exception {
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorStaff.fxml")));
+            Scene admStaff = new Scene(root);
+            //get stage information
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(admStaff);
+            window.show();
+        }
+        catch (Exception e) {
+            System.out.println("Error occurred while opening Staff page");
+            throw e;
+        }
+
+    }public void admStaffButton(ActionEvent event) throws Exception {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorStaff.fxml")));
             Scene admStaff = new Scene(root);
@@ -74,7 +132,32 @@ public class AdministratorController {
         }
     }
 
-    public void admOrders(ActionEvent event) throws Exception {
+    public void gifHoverOrders() {
+        gifOrders.setVisible(true);
+        imgOrders.setVisible(false);
+    }
+
+    public void gifExitOrders() {
+        gifOrders.setVisible(false);
+        imgOrders.setVisible(true);
+    }
+
+    public void admOrders(MouseEvent event) throws Exception {
+        try{
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorOrders.fxml")));
+            Scene admOrders = new Scene(root);
+
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(admOrders);
+            window.show();
+        }
+        catch (Exception e) {
+            System.out.println("Error occurred while opening Orders page");
+            throw e;
+        }
+    }
+
+    public void admOrdersButton(ActionEvent event) throws Exception {
         try{
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorOrders.fxml")));
             Scene admOrders = new Scene(root);

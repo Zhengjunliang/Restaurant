@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
@@ -24,7 +26,7 @@ public class OrderListController {
     @FXML private TableColumn<Order, Double> colOrderTotal;
     @FXML private TableColumn<Order, String> colOrderDate;
 
-    @FXML private Button returnButton;
+    @FXML private ImageView returnButton;
 
     public void initialize() throws Exception{
         colOrderId.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty().asObject());
@@ -61,7 +63,7 @@ public class OrderListController {
         }
     }
 
-    public void return_back(ActionEvent event) throws Exception {
+    public void return_back(MouseEvent event) throws Exception {
         try {
             Stage stage = (Stage) returnButton.getScene().getWindow(); // Ottieni il riferimento alla finestra di AdministratorDish
             stage.close(); // Chiudi la finestra di AdministratorDish
