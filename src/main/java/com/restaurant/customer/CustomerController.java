@@ -1,6 +1,6 @@
 package com.restaurant.customer;
 
-import com.restaurant.DBUtil.OrderDAO;
+import com.restaurant.DBUtil.OrderListDAO;
 import com.restaurant.Main;
 import com.restaurant.DBUtil.DishDAO;
 import com.restaurant.model.ConfigurationManager;
@@ -90,7 +90,7 @@ public class CustomerController {
                 LocalDate currentDate = LocalDate.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
                 String date = currentDate.format(formatter);
-                OrderDAO.insertOrderData(configurationManager.getUsername(), price, date);
+                OrderListDAO.insertOrderData(configurationManager.getUsername(), price, date);
                 txtCheckOutFail.setVisible(false);
                 txtCheckOutSuccess.setVisible(true);
                 configurationManager.setPrice(price);

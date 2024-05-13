@@ -23,7 +23,18 @@ public class OrderListDAO {
         }
     }
 
-    public static ObservableList<Order> getOrderObjects(ResultSet rs) throws SQLException, ClassNotFoundException {
+    public static void insertOrderData(String name, Double price, String date) throws SQLException {
+        String sql = "insert into orders (name, price, date) values('"+name+"',"+price+",'"+date+"')";
+        try{
+            DBUtil.dbExecuteQuery(sql);
+        }
+        catch(SQLException e){
+            System.out.println("Error inserting order data");
+            throw e;
+        }
+    }
+
+    public static ObservableList<Order> getOrderObjects(ResultSet rs) throws SQLException {
         try {
             ObservableList<Order> orderList = FXCollections.observableArrayList();
             while (rs.next()) {
