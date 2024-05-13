@@ -2,23 +2,22 @@ package com.restaurant.customer;
 
 import com.restaurant.DBUtil.OrderDAO;
 import com.restaurant.Main;
-import com.restaurant.administrator.DishDAO;
-import com.restaurant.administrator.DishUpdateController;
+import com.restaurant.DBUtil.DishDAO;
+import com.restaurant.model.ConfigurationManager;
 import com.restaurant.model.Dish;
-import javafx.application.Application;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
+import java.util.Optional;
 
 
 public class CustomerController {
@@ -39,6 +38,10 @@ public class CustomerController {
     @FXML private Button logoutButton;
     @FXML private Text txtCheckOutSuccess;
     @FXML private Text txtCheckOutFail;
+    @FXML private Label txtUsername;
+
+
+
 
     @FXML
     public void initialize() throws Exception {
@@ -53,6 +56,9 @@ public class CustomerController {
         ObservableList<Dish> dishList = DishDAO.getAllRecords();
         populateTable(dishList);
         priceTxt.setText(String.valueOf(price));
+        ConfigurationManager configManager = ConfigurationManager.getInstance();
+        txtUsername.setText(configManager.getUsername());
+
     }
 
     private void populateTable(ObservableList<Dish> dishList) {
@@ -60,7 +66,7 @@ public class CustomerController {
     }
 
     @FXML
-    public void AddOrder() throws Exception{ //cambia che aggiunga item non al click ma dopo con un tasto o doppio click
+    public void AddOrder() { //cambia che aggiunga item non al click ma dopo con un tasto o doppio click
         try
         {
             Dish dish = orderTable.getSelectionModel().getSelectedItem();
@@ -77,21 +83,31 @@ public class CustomerController {
     }
 
     @FXML
-    public void CheckOutOrder() throws SQLException{
+    public void CheckOutOrder() throws Exception{
         try{
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirm Deletion");
-            alert.setHeaderText("Do you really want to delete this dish?");
-            alert.setContentText("Press OK to delete this dish");
-
-            if (alert.showAndWait().get() == ButtonType.OK) {
-                OrderDAO.insertOrderData("marco", price, "11/11/11");
+            if (price != 0){
+                ConfigurationManager configurationManager = ConfigurationManager.getInstance();
+                LocalDate currentDate = LocalDate.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+                String date = currentDate.format(formatter);
+                OrderDAO.insertOrderData(configurationManager.getUsername(), price, date);
                 txtCheckOutFail.setVisible(false);
                 txtCheckOutSuccess.setVisible(true);
-            }
+                configurationManager.setPrice(price);
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PaymentView.fxml")));
+                Scene payment = new Scene(root);
 
+                Stage window = new Stage();
+                window.setScene(payment);
+                window.show();
+            }
+            else
+            {
+                txtCheckOutSuccess.setVisible(false);
+                txtCheckOutFail.setVisible(true);
+            }
         }
-        catch (SQLException e) {
+        catch (Exception e) {
             txtCheckOutSuccess.setVisible(false);
             txtCheckOutFail.setVisible(true);
             System.out.println("Error occurred while check out Order");
@@ -99,7 +115,7 @@ public class CustomerController {
         }
     }
 
-    public void deleteOrder(MouseEvent mouseEvent) {
+    public void deleteOrder() {
         try
         {
             Dish dish = order.getSelectionModel().getSelectedItem();
@@ -115,14 +131,15 @@ public class CustomerController {
         }
     }
 
-    public void logout(ActionEvent event) throws Exception {
+    public void logout() throws Exception {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Logout");
             alert.setHeaderText("You are about to log out");
             alert.setContentText("Do you really want to log out?");
 
-            if (alert.showAndWait().get() == ButtonType.OK) {
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
 
                 Stage stage = (Stage) logoutButton.getScene().getWindow();
                 stage.close();

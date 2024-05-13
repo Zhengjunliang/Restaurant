@@ -1,5 +1,6 @@
 package com.restaurant.administrator;
 
+import com.restaurant.DBUtil.StaffDAO;
 import com.restaurant.model.Staff;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -140,8 +141,6 @@ public class StaffController {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorView.fxml")));
             Scene admStaff = new Scene(root);
 
-            Label usernameLabel = (Label) admStaff.lookup("#txtUsername");
-            usernameLabel.setText(AdministratorController.getUsername());
 
             //get stage information
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

@@ -1,5 +1,6 @@
 package com.restaurant.administrator;
 
+import com.restaurant.DBUtil.DishDAO;
 import com.restaurant.model.Dish;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

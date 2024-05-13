@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="480.0" prefWidth="363.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.restaurant.customer.PaymentController">
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="108.0" layoutY="59.0" prefHeight="21.0" prefWidth="166.0"
+           text="Payment" textAlignment="CENTER">
+        <font>
+            <Font size="28.0"/>
+        </font>
+    </Label>
+    <Label fx:id="PayAmount" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="174.0" layoutY="155.0"
+           prefHeight="21.0" prefWidth="43.0"/>
+    <Button layoutX="163.0" layoutY="249.0" mnemonicParsing="false" onAction="#CashPay" text="Cash"/>
+    <Button layoutX="163.0" layoutY="308.0" mnemonicParsing="false" onAction="#CardPay" text="Card"/>
+    <Button layoutX="163.0" layoutY="371.0" mnemonicParsing="false" onAction="#MealVoucherPay" text="MealVoucher"/>
+</AnchorPane>

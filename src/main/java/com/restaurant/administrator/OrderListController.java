@@ -71,8 +71,6 @@ public class OrderListController {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorView.fxml")));
             Scene admOrders = new Scene(root);
 
-            Label usernameLabel = (Label) admOrders.lookup("#txtUsername");
-            usernameLabel.setText(AdministratorController.getUsername());
 
             Stage window = new Stage();
             window.setScene(admOrders);

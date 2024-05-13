@@ -1,6 +1,6 @@
 package com.restaurant.administrator;
 
-import javafx.event.ActionEvent;
+import com.restaurant.DBUtil.DishDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -22,7 +22,7 @@ public class DishAddController {
         ckbCourse.getItems().addAll("Appetizer", "First Course", "Second Course", "Dessert", "Water", "Wine"); //fare carta dei vini separata?
     }
 
-    public void insertDish(ActionEvent event) throws SQLException, ClassNotFoundException {
+    public void insertDish() throws SQLException {
         try {
             DishDAO.insertDishData(Integer.parseInt(txtId.getText()), txtDish.getText(), ckbCourse.getValue(), Double.parseDouble(txtPrice.getText()), dpDate.getValue().toString());
 

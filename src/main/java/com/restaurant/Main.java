@@ -2,7 +2,6 @@ package com.restaurant;
 
 import com.restaurant.DBUtil.DBUtil;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,6 +10,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Main extends Application {
 
@@ -38,7 +38,8 @@ public class Main extends Application {
         alert.setHeaderText("The Application is about to get closed.");
         alert.setContentText("Do you really want to log out?");
 
-        if (alert.showAndWait().get() == ButtonType.OK) {
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
             stage.close();
         }
     }

@@ -1,5 +1,6 @@
 package com.restaurant.DBUtil;
 
+import com.restaurant.model.ConfigurationManager;
 import javafx.stage.Stage;
 
 import java.sql.*;
@@ -12,6 +13,7 @@ public class DBUtil {
     //database connection method
     public static void dbConnect() throws SQLException, ClassNotFoundException  {
 
+        ConfigurationManager configurationManager = ConfigurationManager.getInstance();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         }
@@ -19,7 +21,7 @@ public class DBUtil {
             throw new ClassNotFoundException(e.getMessage());
         }
         try{
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/db.restaurant", "root", "root");
+            con = DriverManager.getConnection(configurationManager.getDbUrl(), configurationManager.getDbUsername(), configurationManager.getDbPassword());
         }
         catch (SQLException e) {
             System.out.println("Connection Failed");

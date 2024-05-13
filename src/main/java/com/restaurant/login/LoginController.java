@@ -1,11 +1,10 @@
 package com.restaurant.login;
 
+import com.restaurant.DBUtil.LoginDAO;
 import com.restaurant.administrator.AdministratorApplication;
-import com.restaurant.administrator.AdministratorController;
 import com.restaurant.customer.CustomerApplication;
 import com.restaurant.DBUtil.DBUtil;
-import com.restaurant.util.StringUtil;
-import javafx.event.ActionEvent;
+import com.restaurant.model.ConfigurationManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -29,42 +28,32 @@ public class LoginController {
     @FXML
     private Label loginErrorMessage;
 
-    @FXML
-    private Button exitButton;
+    public Stage stage;
 
-    Stage stage;
 
-    private static String login;
-
-    @FXML
-    public void initialize() {
-
-    }
-
-    // Getter per l'username
-    public static String getLogin() {
-        return login;
-    }
 
     @FXML
     public void Login() throws Exception {
         String login = accountLogin.getText();
         String password = passwordLogin.getText();
-        if (StringUtil.isEmpty(login) || StringUtil.isEmpty(password)) {
+
+        if (login.isEmpty() || password.isEmpty()) {
             loginErrorMessage.setVisible(true);
             return;
         }
 
         try{
             if(LoginDAO.isLogin(login, password)){
+                ConfigurationManager configurationManager = ConfigurationManager.getInstance();
+                configurationManager.setUsername(login);
                 if(login.equals("admin")){
-                    AdministratorApplication administratorApplication = new AdministratorApplication(login);
+                    AdministratorApplication administratorApplication = new AdministratorApplication();
                     administratorApplication.start(new Stage());
                     Stage stage = DBUtil.getStage();
                     stage.close();
                 }
                 else {
-                    CustomerApplication customerApplication = new CustomerApplication(login);
+                    CustomerApplication customerApplication = new CustomerApplication();
                     customerApplication.start(new Stage());
                     Stage stage = DBUtil.getStage();
                     stage.close();
@@ -85,7 +74,7 @@ public class LoginController {
         }
     }
 
-    public void logout(ActionEvent event) {
+    public void logout() {
 
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Logout");

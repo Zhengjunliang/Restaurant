@@ -1,6 +1,5 @@
-package com.restaurant.administrator;
+package com.restaurant.DBUtil;
 
-import com.restaurant.DBUtil.DBUtil;
 import com.restaurant.model.Dish;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -57,7 +56,7 @@ public class DishDAO {
     }
 
 
-    public static ObservableList<Dish> getDishObjects(ResultSet rs) throws SQLException, ClassNotFoundException {
+    public static ObservableList<Dish> getDishObjects(ResultSet rs) throws SQLException {
         try {
             ObservableList<Dish> dishList = FXCollections.observableArrayList();
             while (rs.next()) {

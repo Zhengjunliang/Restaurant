@@ -1,8 +1,8 @@
 package com.restaurant.administrator;
 
+import com.restaurant.DBUtil.DishDAO;
 import com.restaurant.model.Dish;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -132,9 +132,6 @@ public class DishController {
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorView.fxml")));
             Scene admDish = new Scene(root);
-
-            Label usernameLabel = (Label) admDish.lookup("#txtUsername");
-            usernameLabel.setText(AdministratorController.getUsername());
 
             Stage window = new Stage();
             window.setScene(admDish);

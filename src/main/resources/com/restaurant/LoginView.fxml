@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="loginPane" prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.restaurant.login.LoginController">
-    <children>
-        <Label layoutX="148.0" layoutY="134.0" prefHeight="21.0" prefWidth="62.0" text="Username :" />
-        <TextField fx:id="accountLogin" layoutX="223.0" layoutY="131.0" prefHeight="27.0" prefWidth="161.0" promptText="Mario" />
-        <PasswordField fx:id="passwordLogin" layoutX="223.0" layoutY="190.0" prefHeight="27.0" prefWidth="161.0" />
-        <Label layoutX="148.0" layoutY="193.0" prefHeight="21.0" prefWidth="62.0" text="Password :" />
-        <Button fx:id="LoginButton" layoutX="246.0" layoutY="251.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0" prefWidth="109.0" text="Login" />
-        <Label layoutX="139.0" layoutY="14.0" prefHeight="59.0" prefWidth="330.0" text="Restaurant Management System">
-            <font>
-                <Font name="Bell MT" size="24.0" />
-            </font>
-        </Label>
-        <Label fx:id="loginErrorMessage" layoutX="216.0" layoutY="79.0" prefHeight="21.0" prefWidth="168.0" text="Wrong Username or Password" textFill="#ff0033" visible="false" />
-        <Button fx:id="exitButton" layoutX="281.0" layoutY="303.0" mnemonicParsing="false" onAction="#logout" text="Exit" />
-    </children>
+<AnchorPane fx:id="loginPane" prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.restaurant.login.LoginController">
+    <Label layoutX="148.0" layoutY="134.0" prefHeight="21.0" prefWidth="62.0" text="Username :"/>
+    <TextField fx:id="accountLogin" layoutX="223.0" layoutY="131.0" prefHeight="27.0" prefWidth="161.0"
+               promptText="Mario"/>
+    <PasswordField fx:id="passwordLogin" layoutX="223.0" layoutY="190.0" prefHeight="27.0" prefWidth="161.0"/>
+    <Label layoutX="148.0" layoutY="193.0" prefHeight="21.0" prefWidth="62.0" text="Password :"/>
+    <Button layoutX="246.0" layoutY="251.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0"
+            prefWidth="109.0" text="Login"/>
+    <Label layoutX="139.0" layoutY="14.0" prefHeight="59.0" prefWidth="330.0" text="Restaurant Management System">
+        <font>
+            <Font name="Bell MT" size="24.0"/>
+        </font>
+    </Label>
+    <Label fx:id="loginErrorMessage" layoutX="216.0" layoutY="79.0" prefHeight="21.0" prefWidth="168.0"
+           text="Wrong Username or Password" textFill="#ff0033" visible="false"/>
+    <Button layoutX="281.0" layoutY="303.0" mnemonicParsing="false" onAction="#logout" text="Exit"/>
 </AnchorPane>

@@ -1,6 +1,4 @@
-package com.restaurant.login;
-
-import com.restaurant.DBUtil.DBUtil;
+package com.restaurant.DBUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
