@@ -119,7 +119,7 @@ public class CustomerController {
         try
         {
             Dish dish = order.getSelectionModel().getSelectedItem();
-            if (order != null) {
+            if (dish != null) {
                 order.getItems().remove(dish);
                 price -= dish.getPrice();
                 priceTxt.setText(String.valueOf(price));
