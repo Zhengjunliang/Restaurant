@@ -11,10 +11,10 @@ public class ConfigurationManager {
     private double price;
 
     private ConfigurationManager() {
-        this.username = "";
-        this.dbUrl = "jdbc:mysql://127.0.0.1:3306/db.restaurant";
-        this.dbUsername = "root";
-        this.dbPassword = "root";
+        this.username = ""; //del login
+        this.dbUrl = "jdbc:mysql://127.0.0.1:3306/db.restaurant"; //per database
+        this.dbUsername = "root"; //per database
+        this.dbPassword = "root"; //per database
         this.price = 0.0;
     }
 

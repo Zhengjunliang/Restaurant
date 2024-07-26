@@ -10,29 +10,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.restaurant.administrator.OrderListController">
+<AnchorPane prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.restaurant.administrator.OrderListController">
     <TableView fx:id="orderTable" layoutX="10.0" layoutY="76.0" prefHeight="313.0" prefWidth="581.0">
         <columns>
-            <TableColumn fx:id="colOrderId" prefWidth="66.0" text="Id"/>
-            <TableColumn fx:id="colOrderName" prefWidth="140.0" text="Name"/>
-            <TableColumn fx:id="colOrderTotal" prefWidth="122.0" text="Price"/>
-            <TableColumn fx:id="colOrderDate" prefWidth="147.0" text="Entry Date"/>
+            <TableColumn fx:id="colOrderId" prefWidth="69.33343505859375" text="Id" />
+            <TableColumn fx:id="colOrderName" prefWidth="194.6666259765625" text="Name" />
+            <TableColumn fx:id="colOrderTotal" prefWidth="133.9998779296875" text="Price" />
+            <TableColumn fx:id="colOrderDate" prefWidth="183.333251953125" text="Entry Date" />
         </columns>
     </TableView>
-    <Label alignment="CENTER" layoutX="143.0" layoutY="22.0" prefHeight="38.0" prefWidth="296.0"
-           text="  Completed Checkout View" textAlignment="CENTER">
+    <Label alignment="CENTER" layoutX="143.0" layoutY="22.0" prefHeight="38.0" prefWidth="296.0" text="  Completed Checkout View" textAlignment="CENTER">
         <font>
-            <Font size="24.0"/>
+            <Font size="24.0" />
         </font>
     </Label>
-    <TextField fx:id="searchId" layoutX="452.0" layoutY="25.0" prefHeight="31.0" prefWidth="80.0"/>
-    <Button layoutX="539.0" layoutY="28.0" mnemonicParsing="false" onAction="#searchOrder"
-            text="Search"/>
-    <Button layoutX="25.0" layoutY="411.0" mnemonicParsing="false" onAction="#refreshOrders"
-            text="Refresh"/>
-    <ImageView fx:id="returnButton" fitHeight="38.0" fitWidth="51.0" layoutX="34.0" layoutY="22.0"
-               onMouseClicked="#return_back" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../docs/returnArrow.png"/>
+    <TextField fx:id="searchId" layoutX="452.0" layoutY="25.0" prefHeight="31.0" prefWidth="80.0" />
+    <Button layoutX="539.0" layoutY="28.0" mnemonicParsing="false" onAction="#searchOrder" text="Search" />
+    <Button layoutX="25.0" layoutY="411.0" mnemonicParsing="false" onAction="#refreshOrders" text="Refresh" />
+    <ImageView fx:id="returnButton" fitHeight="38.0" fitWidth="51.0" layoutX="34.0" layoutY="22.0" onMouseClicked="#return_back" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../docs/returnArrow.png" />
     </ImageView>
 </AnchorPane>
