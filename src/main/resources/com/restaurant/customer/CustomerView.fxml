@@ -25,19 +25,19 @@
         </columns>
     </TableView>
     <Label fx:id="priceTxt" alignment="CENTER_RIGHT" layoutX="640.0" layoutY="399.0" prefHeight="21.0" prefWidth="44.0" text="0" textAlignment="RIGHT" />
-    <TableView fx:id="order" layoutX="447.0" layoutY="65.0" onMouseClicked="#deleteOrder" prefHeight="334.0" prefWidth="247.0">
+    <TableView fx:id="order" layoutX="447.0" layoutY="63.0" onMouseClicked="#deleteOrder" prefHeight="334.0" prefWidth="247.0">
         <columns>
             <TableColumn fx:id="colName" prefWidth="149.0" text="Name" />
             <TableColumn fx:id="colPrice" prefWidth="97.0" text="Price" />
         </columns>
     </TableView>
     <Button layoutX="605.0" layoutY="427.0" mnemonicParsing="false" onAction="#CheckOutOrder" text="Check out" />
-    <Text fx:id="txtCheckOutSuccess" fill="#3498db" layoutX="209.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your order has been submitted correctly!" visible="false" wrappingWidth="258.21630859375">
+    <Text fx:id="txtCheckOutSuccess" disable="true" fill="#3498db" layoutX="220.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your order has been submitted correctly!" visible="false" wrappingWidth="294.21630859375">
         <font>
             <Font size="15.0" />
         </font>
     </Text>
-    <Text fx:id="txtCheckOutFail" fill="#e74c3c" layoutX="191.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="There was an error while processing your order" visible="false" wrappingWidth="294.21630859375">
+    <Text fx:id="txtCheckOutFail" fill="#e74c3c" layoutX="220.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="There was an error while processing your order" visible="false" wrappingWidth="294.21630859375">
         <font>
             <Font size="15.0" />
         </font>
