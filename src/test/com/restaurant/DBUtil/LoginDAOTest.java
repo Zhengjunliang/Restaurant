@@ -15,14 +15,14 @@ public class LoginDAOTest {
     }
 
     @BeforeEach
-    public void setUp() throws SQLException, ClassNotFoundException {
+    public void setUp() throws SQLException {
         // Clean up the specific test user before each test
         String deleteTestUserSQL = "DELETE FROM utente WHERE username = 'testUser'";
         DBUtil.dbExecuteQuery(deleteTestUserSQL);
     }
 
     @AfterAll
-    public static void tearDownClass() throws SQLException, ClassNotFoundException {
+    public static void tearDownClass() throws SQLException {
         // Disconnect from the database
         DBUtil.dbDisconnect();
     }

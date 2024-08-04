@@ -24,14 +24,14 @@ public class OrderListDAOTest {
     }
 
     @BeforeEach
-    public void setUp() throws SQLException, ClassNotFoundException {
+    public void setUp() throws SQLException {
         // Clean up test data before each test
         String deleteTestOrdersSQL = "DELETE FROM orders";
         DBUtil.dbExecuteQuery(deleteTestOrdersSQL);
     }
 
     @AfterAll
-    public static void tearDownClass() throws SQLException, ClassNotFoundException {
+    public static void tearDownClass() throws SQLException {
         //Clean up all data in the table after all tests are done
         String deleteTestOrdersSQL = "DELETE FROM orders";
         DBUtil.dbExecuteQuery(deleteTestOrdersSQL);

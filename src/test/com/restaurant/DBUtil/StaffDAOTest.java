@@ -27,7 +27,7 @@ public class StaffDAOTest {
     }
 
     @BeforeEach
-    public void setUp() throws SQLException, ClassNotFoundException {
+    public void setUp() throws SQLException {
         // Clean up test data before each test
         String deleteTestStaffSQL = "DELETE FROM staff";
         DBUtil.dbExecuteQuery(deleteTestStaffSQL);
@@ -35,7 +35,7 @@ public class StaffDAOTest {
 
 
     @AfterAll
-    public static void tearDownClass() throws SQLException, ClassNotFoundException {
+    public static void tearDownClass() throws SQLException {
         // Clean up all data in the table after all tests are done
         String deleteAllStaffSQL = "DELETE FROM staff";
         DBUtil.dbExecuteQuery(deleteAllStaffSQL);

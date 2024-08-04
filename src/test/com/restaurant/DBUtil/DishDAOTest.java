@@ -25,7 +25,7 @@ public class DishDAOTest {
     }
 
     @BeforeEach
-    public void setUp() throws SQLException, ClassNotFoundException {
+    public void setUp() throws SQLException {
         // Clean up the table before each test
         String clearTableSQL = "DELETE FROM dish";
         DBUtil.dbExecuteQuery(clearTableSQL);
