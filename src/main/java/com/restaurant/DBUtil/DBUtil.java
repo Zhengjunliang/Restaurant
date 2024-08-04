@@ -95,4 +95,7 @@ public class DBUtil {
         return stage;
     }
 
+    public static Connection getConnection() {
+        return con;
+    }
 }

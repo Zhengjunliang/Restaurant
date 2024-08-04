@@ -1,5 +1,5 @@
 package com.restaurant.customer;
 
-interface PaymentStrategy {
+interface IPaymentStrategy {
     double calculatePayment(double amount);
 }

@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 
-public class AdmToDishesCommand implements Command {
+public class AdmToDishesICommand implements ICommand {
     @Override
     public void execute(Event event) throws Exception {
         try {

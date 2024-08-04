@@ -1,13 +1,13 @@
 package com.restaurant.customer;
 
 class PaymentContext {
-    private final PaymentStrategy paymentStrategy;
+    private final IPaymentStrategy IPaymentStrategy;
 
-    public PaymentContext(PaymentStrategy paymentStrategy) {
-        this.paymentStrategy = paymentStrategy;
+    public PaymentContext(IPaymentStrategy IPaymentStrategy) {
+        this.IPaymentStrategy = IPaymentStrategy;
     }
 
     public double calculatePaymentAmount(double paymentAmount) {
-        return paymentStrategy.calculatePayment(paymentAmount);
+        return IPaymentStrategy.calculatePayment(paymentAmount);
     }
 }

@@ -67,6 +67,20 @@ public class OrderListDAO {
         }
     }
 
+    public static ObservableList<Order> searchOrderDataByName(String username) throws SQLException, ClassNotFoundException {
+        String sql = "SELECT * FROM orders WHERE name=" + "'" + username + "'";
+        try {
+            ResultSet rs = DBUtil.dbExecute(sql);
+            ObservableList<Order> orderList;
+            orderList = getOrderObjects(rs);
+            return orderList;
+        }
+        catch (SQLException e) {
+            System.out.println("Exception occurred while searching order data");
+            throw e;
+        }
+    }
+
     public static double sumPriceData() throws SQLException, ClassNotFoundException {
         String sql = "SELECT SUM(price) as totalPrice FROM orders";
         double totalPrice = 0;

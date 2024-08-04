@@ -24,7 +24,7 @@ public class PaymentController {
 
     @FXML
     public void CashPay(){
-        PaymentContext cashPayment = new PaymentContext(new CashPaymentStrategy());
+        PaymentContext cashPayment = new PaymentContext(new CashIPaymentStrategy());
         double totalAmountTmp = cashPayment.calculatePaymentAmount(totalAmount);
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Payment");
@@ -40,7 +40,7 @@ public class PaymentController {
 
     @FXML
     public void CardPay(){
-        PaymentContext creditCardPayment  = new PaymentContext(new CreditCardPaymentStrategy());
+        PaymentContext creditCardPayment  = new PaymentContext(new CreditCardIPaymentStrategy());
         double totalAmountTmp = creditCardPayment .calculatePaymentAmount(totalAmount);
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Payment");
@@ -55,7 +55,7 @@ public class PaymentController {
 
     @FXML
     public void MealVoucherPay(){
-        PaymentContext mealVoucherPayment  = new PaymentContext(new MealVoucherStrategy());
+        PaymentContext mealVoucherPayment  = new PaymentContext(new MealVoucherStrategyI());
         double totalAmountTmp = mealVoucherPayment .calculatePaymentAmount(totalAmount);
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Payment");

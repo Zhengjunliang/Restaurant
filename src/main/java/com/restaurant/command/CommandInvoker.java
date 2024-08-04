@@ -2,15 +2,15 @@ package com.restaurant.command;
 import javafx.event.Event;
 
 public class CommandInvoker {
-    private Command command;
+    private ICommand ICommand;
 
-    public void setCommand(Command command) {
-        this.command = command;
+    public void setCommand(ICommand ICommand) {
+        this.ICommand = ICommand;
     }
 
     public void executeCommand(Event event) throws Exception {
-        if (command != null) {
-            command.execute(event);
+        if (ICommand != null) {
+            ICommand.execute(event);
         }
     }
 }

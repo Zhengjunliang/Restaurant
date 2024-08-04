@@ -3,10 +3,9 @@ package com.restaurant.administrator;
 import com.restaurant.DBUtil.OrderListDAO;
 import com.restaurant.DBUtil.StaffDAO;
 import com.restaurant.Main;
-import com.restaurant.command.AdmToDishesCommand;
-import com.restaurant.command.AdmToOrderCommand;
-import com.restaurant.command.AdmToStaffCommand;
-import com.restaurant.command.CommandInvoker;
+import com.restaurant.command.*;
+import com.restaurant.command.AdmToDishesICommand;
+import com.restaurant.command.AdmToStaffICommand;
 import com.restaurant.model.ConfigurationManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,12 +51,12 @@ public class AdministratorController {
     }
 
     public void admDish(MouseEvent event) throws Exception {
-        commandInvoker.setCommand(new AdmToDishesCommand());
+        commandInvoker.setCommand(new AdmToDishesICommand());
         commandInvoker.executeCommand(event);
     }
 
     public void admDishButton(ActionEvent event) throws Exception {
-        commandInvoker.setCommand(new AdmToDishesCommand());
+        commandInvoker.setCommand(new AdmToDishesICommand());
         commandInvoker.executeCommand(event);
     }
 
@@ -72,12 +71,12 @@ public class AdministratorController {
     }
 
     public void admStaff(MouseEvent event) throws Exception {
-        commandInvoker.setCommand(new AdmToStaffCommand());
+        commandInvoker.setCommand(new AdmToStaffICommand());
         commandInvoker.executeCommand(event);
 
     }
     public void admStaffButton(ActionEvent event) throws Exception {
-        commandInvoker.setCommand(new AdmToStaffCommand());
+        commandInvoker.setCommand(new AdmToStaffICommand());
         commandInvoker.executeCommand(event);
     }
 
@@ -92,12 +91,12 @@ public class AdministratorController {
     }
 
     public void admOrders(MouseEvent event) throws Exception {
-        commandInvoker.setCommand(new AdmToOrderCommand());
+        commandInvoker.setCommand(new AdmToOrderICommand());
         commandInvoker.executeCommand(event);
     }
 
     public void admOrdersButton(ActionEvent event) throws Exception {
-        commandInvoker.setCommand(new AdmToOrderCommand());
+        commandInvoker.setCommand(new AdmToOrderICommand());
         commandInvoker.executeCommand(event);
     }
 

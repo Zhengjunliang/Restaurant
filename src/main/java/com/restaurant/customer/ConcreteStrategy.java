@@ -1,20 +1,20 @@
 package com.restaurant.customer;
 
-class CashPaymentStrategy implements PaymentStrategy {
+class CashIPaymentStrategy implements IPaymentStrategy {
     @Override
     public double calculatePayment(double amount) {
         return amount;
     }
 }
 
-class CreditCardPaymentStrategy implements PaymentStrategy {
+class CreditCardIPaymentStrategy implements IPaymentStrategy {
     @Override
     public double calculatePayment(double amount) {
         return amount * 0.95;
     }
 }
 
-class MealVoucherStrategy implements PaymentStrategy {
+class MealVoucherStrategyI implements IPaymentStrategy {
     @Override
     public double calculatePayment(double amount) {
         return amount * 0.80;
