@@ -17,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.sql.SQLException;
+import java.util.Optional;
 
 
 public class AdministratorController {
@@ -101,17 +102,18 @@ public class AdministratorController {
     }
 
 
-    public void admLogout(ActionEvent event) throws Exception {
+    public void admLogout() throws Exception {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Logout");
             alert.setHeaderText("You are about to log out");
             alert.setContentText("Do you really want to log out?");
 
-            if (alert.showAndWait().get() == ButtonType.OK) {
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
 
                 Stage stage = (Stage) logoutButton.getScene().getWindow();
-                //stage.close();
+                stage.close();
 
                 Main main = new Main();
                 main.start(new Stage());

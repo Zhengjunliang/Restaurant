@@ -126,16 +126,15 @@ public class DishController {
 
     public void return_back(MouseEvent event) throws Exception {
         try {
-            //si possono togliere queste due righe?
-            Stage stage = (Stage) returnButton.getScene().getWindow(); // Ottieni il riferimento alla finestra di AdministratorDish
-            stage.close(); // Chiudi la finestra di AdministratorDish
+            // Ottieni il riferimento alla finestra corrente
+            Stage stage = (Stage) returnButton.getScene().getWindow();
 
+            // Carica la nuova vista
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorView.fxml")));
             Scene admDish = new Scene(root);
 
-            Stage window = new Stage();
-            window.setScene(admDish);
-            window.show();
+            // Imposta la nuova scena alla finestra corrente
+            stage.setScene(admDish);
         }
         catch (Exception e) {
             System.out.println("Error occurred while opening Administrator page");

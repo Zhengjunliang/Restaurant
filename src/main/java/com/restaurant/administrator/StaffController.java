@@ -135,17 +135,15 @@ public class StaffController {
 
     public void return_back(MouseEvent event)  throws Exception{
         try {
-            Stage stage = (Stage) returnButton.getScene().getWindow(); // Ottieni il riferimento alla finestra di AdministratorDish
-            stage.close(); // Chiudi la finestra di AdministratorDish
+            // Ottieni il riferimento alla finestra corrente
+            Stage stage = (Stage) returnButton.getScene().getWindow();
 
+            // Carica la nuova vista
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdministratorView.fxml")));
             Scene admStaff = new Scene(root);
 
-
-            //get stage information
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            window.setScene(admStaff);
-            window.show();
+            // Imposta la nuova scena alla finestra corrente
+            stage.setScene(admStaff);
         }
         catch (Exception e) {
             System.out.println("Error occurred while opening Admin page");

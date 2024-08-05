@@ -36,7 +36,7 @@ public class Main extends Application {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("The Application is about to get closed.");
-        alert.setContentText("Do you really want to log out?");
+        alert.setContentText("Do you really want exit?");
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
